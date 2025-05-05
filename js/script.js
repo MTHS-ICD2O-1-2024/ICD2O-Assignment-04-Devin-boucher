@@ -7,8 +7,7 @@
 'use strict'
 
 // eslint-disable-next-line no-unused-vars
-
-function calculateCupcakeCost() {
+function calculateCupcakeCost () {
   // Get selected cupcake size
   const sizeRadios = document.getElementsByName('size')
   let sizeValue = ''
