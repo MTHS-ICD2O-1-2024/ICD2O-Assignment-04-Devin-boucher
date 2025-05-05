@@ -1,42 +1,54 @@
-// Copyright (c) 2020 Mr. Coxall All rights reserved
-//
-// Created by: Mr. Coxall
-// Created on: Sep 2020
-// This file contains the JS functions for index.html
-
 'use strict'
 
-// eslint-disable-next-line no-unused-vars
-
-function calculatePizzaCost () {
-  const size = document.querySelector('input[name="size"]:checked').value
-  const toppings = parseInt(document.querySelector('input[name="toppings"]:checked').value)
-
-  let baseCost = 0
-  if (size === 'large') {
-    baseCost = 6.00
-  } else if (size === 'extraLarge') {
-    baseCost = 10.00
+function calculateCupcakeCost() {
+  // Get selected cupcake size
+  const sizeRadios = document.getElementsByName("size")
+  let sizeValue = ""
+  for (let i = 0; i < sizeRadios.length; i++) {
+    if (sizeRadios[i].checked) {
+      sizeValue = sizeRadios[i].value
+    }
   }
 
-  let toppingCost = 0
-  if (toppings === 1) {
-    toppingCost = 1.00
-  } else if (toppings === 2) {
-    toppingCost = 1.75
-  } else if (toppings === 3) {
-    toppingCost = 2.50
-  } else if (toppings === 4) {
-    toppingCost = 3.35
+  // Get selected number of toppings
+  const toppingRadios = document.getElementsByName("toppings")
+  let toppingCount = 0
+  for (let i = 0; i < toppingRadios.length; i++) {
+    if (toppingRadios[i].checked) {
+      toppingCount = parseInt(toppingRadios[i].value)
+    }
   }
 
-  const subtotal = baseCost + toppingCost
+  // Calculate base cost
+  let basePrice = 0
+  if (sizeValue === "large") {
+    basePrice = 2.0
+  } else if (sizeValue === "extraLarge") {
+    basePrice = 3.5
+  }
+
+  // Calculate topping cost
+  let toppingPrice = 0
+  if (toppingCount === 1) {
+    toppingPrice = 0.5
+  } else if (toppingCount === 2) {
+    toppingPrice = 0.9
+  } else if (toppingCount === 3) {
+    toppingPrice = 1.25
+  } else if (toppingCount === 4) {
+    toppingPrice = 1.75
+  }
+
+  const subtotal = basePrice + toppingPrice
   const tax = subtotal * 0.13
   const total = subtotal + tax
 
-  document.getElementById('result').innerHTML = `
-    <p>Subtotal: $${subtotal.toFixed(2)}</p>
-    <p>HST (13%): $${tax.toFixed(2)}</p>
-    <p><strong>Total Cost: $${total.toFixed(2)}</strong></p>
-  `
+  // Display image
+  document.getElementById("cupcake-image").style.display = "block"
+
+  // Display the results
+  document.getElementById("result").innerHTML =
+    "<p>Subtotal: $" + subtotal.toFixed(2) + "</p>" +
+    "<p>HST (13%): $" + tax.toFixed(2) + "</p>" +
+    "<p><strong>Total Cost: $" + total.toFixed(2) + "</strong></p>"
 }
