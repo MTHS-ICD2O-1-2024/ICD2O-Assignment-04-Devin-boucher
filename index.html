@@ -32,54 +32,49 @@
         </div>
       </header>
       <main class="mdl-layout__content">
-        <div class="page-content" style="padding: 16px">
-          <h4>Select your cupcake size</h4>
-          <div>
-            <label
-              ><input type="radio" name="size" value="large" checked /> Regular
-              ($2.00)</label
-            ><br />
-            <label
-              ><input type="radio" name="size" value="extraLarge" /> Jumbo
-              ($3.50)</label
-            ><br />
+        <div class="right-image">
+          <img id="cupcake-image" src="./images/cupcake.png" alt="cupcake" />
+          <div class="page-content" style="padding: 16px">
+            <h4>Select your cupcake size</h4>
+            <div>
+              <label
+                ><input type="radio" name="size" value="large" checked />
+                Regular ($2.00)</label
+              ><br />
+              <label
+                ><input type="radio" name="size" value="extraLarge" /> Jumbo
+                ($3.50)</label
+              ><br />
+            </div>
+            <br />
+            <h4>Select number of toppings</h4>
+            <div>
+              <label
+                ><input type="radio" name="toppings" value="1" checked /> 1
+                Topping ($0.50)</label
+              ><br />
+              <label
+                ><input type="radio" name="toppings" value="2" /> 2 Toppings
+                ($0.90)</label
+              ><br />
+              <label
+                ><input type="radio" name="toppings" value="3" /> 3 Toppings
+                ($1.25)</label
+              ><br />
+              <label
+                ><input type="radio" name="toppings" value="4" /> 4 Toppings
+                ($1.75)</label
+              ><br />
+            </div>
+            <br />
+            <button
+              class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
+              onclick="calculateCupcakeCost()"
+            >
+              Calculate
+            </button>
           </div>
-          <br />
-          <h4>Select number of toppings</h4>
-          <div>
-            <label
-              ><input type="radio" name="toppings" value="1" checked /> 1
-              Topping ($0.50)</label
-            ><br />
-            <label
-              ><input type="radio" name="toppings" value="2" /> 2 Toppings
-              ($0.90)</label
-            ><br />
-            <label
-              ><input type="radio" name="toppings" value="3" /> 3 Toppings
-              ($1.25)</label
-            ><br />
-            <label
-              ><input type="radio" name="toppings" value="4" /> 4 Toppings
-              ($1.75)</label
-            ><br />
-          </div>
-          <br />
-          <button
-            class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
-            onclick="calculateCupcakeCost()"
-          >
-            Calculate
-          </button>
-          <div style="margin-top: 16px">
-            <img
-              id="cupcake-image"
-              src="cupcake.png"
-              alt="Cupcake"
-              style="max-width: 200px; display: none"
-            />
-          </div>
-          <div id="result" style="margin-top: 16px"></div>
+          <div id="result"></div>
         </div>
       </main>
     </div>
