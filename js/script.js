@@ -6,7 +6,9 @@
 
 'use strict'
 
-function calculatePizzaCost() {
+// eslint-disable-next-line no-unused-vars
+
+function calculatePizzaCost () {
   const size = document.querySelector('input[name="size"]:checked').value
   const toppings = parseInt(document.querySelector('input[name="toppings"]:checked').value)
 
