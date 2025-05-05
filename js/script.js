@@ -1,9 +1,17 @@
+// Copyright (c) 2020 Mr. Coxall All rights reserved
+//
+// Created by: Devin Boucher
+// Created on: April 2025
+// This file contains the JS functions for index.html
+
 'use strict'
+
+// eslint-disable-next-line no-unused-vars
 
 function calculateCupcakeCost() {
   // Get selected cupcake size
-  const sizeRadios = document.getElementsByName("size")
-  let sizeValue = ""
+  const sizeRadios = document.getElementsByName('size')
+  let sizeValue = ''
   for (let i = 0; i < sizeRadios.length; i++) {
     if (sizeRadios[i].checked) {
       sizeValue = sizeRadios[i].value
@@ -11,7 +19,7 @@ function calculateCupcakeCost() {
   }
 
   // Get selected number of toppings
-  const toppingRadios = document.getElementsByName("toppings")
+  const toppingRadios = document.getElementsByName('toppings')
   let toppingCount = 0
   for (let i = 0; i < toppingRadios.length; i++) {
     if (toppingRadios[i].checked) {
@@ -21,9 +29,9 @@ function calculateCupcakeCost() {
 
   // Calculate base cost
   let basePrice = 0
-  if (sizeValue === "large") {
+  if (sizeValue === 'large') {
     basePrice = 2.0
-  } else if (sizeValue === "extraLarge") {
+  } else if (sizeValue === 'extraLarge') {
     basePrice = 3.5
   }
 
@@ -44,11 +52,11 @@ function calculateCupcakeCost() {
   const total = subtotal + tax
 
   // Display image
-  document.getElementById("cupcake-image").style.display = "block"
+  document.getElementById('cupcake-image').style.display = 'block'
 
   // Display the results
-  document.getElementById("result").innerHTML =
-    "<p>Subtotal: $" + subtotal.toFixed(2) + "</p>" +
-    "<p>HST (13%): $" + tax.toFixed(2) + "</p>" +
-    "<p><strong>Total Cost: $" + total.toFixed(2) + "</strong></p>"
+  document.getElementById('result').innerHTML =
+    '<p>Subtotal: $' + subtotal.toFixed(2) + '</p>' +
+    '<p>HST (13%): $' + tax.toFixed(2) + '</p>' +
+    '<p><strong>Total Cost: $' + total.toFixed(2) + '</strong></p>'
 }
