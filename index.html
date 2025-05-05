@@ -1,9 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en-ca">
   <head>
-    <title>Title</title>
+    <meta charset="utf-8" />
+    <meta name="description" content="Pizza Order Calculator" />
+    <meta name="keywords" content="pizza, cost calculator, toppings" />
+    <meta name="author" content="Devin Boucher" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.deep_purple-indigo.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Pizza Order Calculator</title>
   </head>
+  
   <body>
-    <p>Paragraph</p>
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <script src="./js/script.js" defer></script>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header class="mdl-layout__header">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title">Pizza Order Calculator</span>
+        </div>
+      </header>
+      <main class="mdl-layout__content">
+        <div class="page-content" style="padding: 16px">
+          <h4>Select your pizza size</h4>
+          <label
+            ><input type="radio" name="size" value="large" checked /> Large
+            ($6.00)</label
+          ><br />
+          <label
+            ><input type="radio" name="size" value="extraLarge" /> Extra Large
+            ($10.00)</label
+          ><br /><br />
+          <h4>Select number of toppings</h4>
+          <label
+            ><input type="radio" name="toppings" value="1" checked /> 1 Topping
+            ($1.00)</label
+          ><br />
+          <label
+            ><input type="radio" name="toppings" value="2" /> 2 Toppings
+            ($1.75)</label
+          ><br />
+          <label
+            ><input type="radio" name="toppings" value="3" /> 3 Toppings
+            ($2.50)</label
+          ><br />
+          <label
+            ><input type="radio" name="toppings" value="4" /> 4 Toppings
+            ($3.35)</label
+          ><br /><br />
+          <button
+            class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"
+            onclick="calculatePizzaCost()"
+          >
+            Calculate
+          </button>
+          <div id="result" style="margin-top: 16px"></div>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
