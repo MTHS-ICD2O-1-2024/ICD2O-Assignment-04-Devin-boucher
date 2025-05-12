@@ -15,24 +15,27 @@ const TOPPING_PRICE_4 = 1.75
 // Constant for tax rate
 const TAX_RATE = 0.13
 
-// eslint-disable-next-line no-unused-vars
 function calculateCupcakeCost () {
   // Get selected cupcake size
-  const sizeRadios = document.getElementsByName('size')
   let sizeValue = ''
+  const sizeRadios = document.getElementsByName('size')
   if (sizeRadios[0].checked) {
     sizeValue = sizeRadios[0].value
   } else if (sizeRadios[1].checked) {
     sizeValue = sizeRadios[1].value
   }
 
-  // Get selected number of toppings
-  const toppingRadios = document.getElementsByName('toppings')
+  // Get selected topping count
   let toppingCount = 0
-  for (let i = 0; i < toppingRadios.length; i++) {
-    if (toppingRadios[i].checked) {
-      toppingCount = parseInt(toppingRadios[i].value)
-    }
+  const toppingRadios = document.getElementsByName('toppings')
+  if (toppingRadios[0].checked) {
+    toppingCount = parseInt(toppingRadios[0].value)
+  } else if (toppingRadios[1].checked) {
+    toppingCount = parseInt(toppingRadios[1].value)
+  } else if (toppingRadios[2].checked) {
+    toppingCount = parseInt(toppingRadios[2].value)
+  } else if (toppingRadios[3].checked) {
+    toppingCount = parseInt(toppingRadios[3].value)
   }
 
   // Calculate base cost
@@ -43,7 +46,7 @@ function calculateCupcakeCost () {
     basePrice = 3.5
   }
 
-  // Calculate topping cost using constants
+  // Calculate topping cost
   let toppingPrice = 0
   if (toppingCount === 1) {
     toppingPrice = TOPPING_PRICE_1
@@ -55,14 +58,12 @@ function calculateCupcakeCost () {
     toppingPrice = TOPPING_PRICE_4
   }
 
+  // Calculate total
   const subtotal = basePrice + toppingPrice
   const tax = subtotal * TAX_RATE
   const total = subtotal + tax
 
-  // Display image
-  document.getElementById('cupcake-image').style.display = 'block'
-
-  // Display the results
+  // Show the result
   document.getElementById('result').innerHTML =
     '<p>Subtotal: $' + subtotal.toFixed(2) + '</p>' +
     '<p>HST (13%): $' + tax.toFixed(2) + '</p>' +
