@@ -6,15 +6,24 @@
 
 'use strict'
 
+// Constants for topping prices
+const TOPPING_PRICE_1 = 0.5
+const TOPPING_PRICE_2 = 0.9
+const TOPPING_PRICE_3 = 1.25
+const TOPPING_PRICE_4 = 1.75
+
+// Constant for tax rate
+const TAX_RATE = 0.13
+
 // eslint-disable-next-line no-unused-vars
 function calculateCupcakeCost () {
   // Get selected cupcake size
   const sizeRadios = document.getElementsByName('size')
   let sizeValue = ''
-  for (let i = 0; i < sizeRadios.length; i++) {
-    if (sizeRadios[i].checked) {
-      sizeValue = sizeRadios[i].value
-    }
+  if (sizeRadios[0].checked) {
+    sizeValue = sizeRadios[0].value
+  } else if (sizeRadios[1].checked) {
+    sizeValue = sizeRadios[1].value
   }
 
   // Get selected number of toppings
@@ -34,20 +43,20 @@ function calculateCupcakeCost () {
     basePrice = 3.5
   }
 
-  // Calculate topping cost
+  // Calculate topping cost using constants
   let toppingPrice = 0
   if (toppingCount === 1) {
-    toppingPrice = 0.5
+    toppingPrice = TOPPING_PRICE_1
   } else if (toppingCount === 2) {
-    toppingPrice = 0.9
+    toppingPrice = TOPPING_PRICE_2
   } else if (toppingCount === 3) {
-    toppingPrice = 1.25
+    toppingPrice = TOPPING_PRICE_3
   } else if (toppingCount === 4) {
-    toppingPrice = 1.75
+    toppingPrice = TOPPING_PRICE_4
   }
 
   const subtotal = basePrice + toppingPrice
-  const tax = subtotal * 0.13
+  const tax = subtotal * TAX_RATE
   const total = subtotal + tax
 
   // Display image
